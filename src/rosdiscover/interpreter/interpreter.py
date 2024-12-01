@@ -123,7 +123,7 @@ class Interpreter:
         # now that all nodes have been initialised, load all plugins
         for node_context in self.nodes.values():
             for plugin in node_context._plugins:
-                plugin.load(self)
+                plugin.load(self, node_context)
 
     def _create_nodelet_manager(self,
                                 name: str,

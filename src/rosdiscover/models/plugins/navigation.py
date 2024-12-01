@@ -62,8 +62,8 @@ class StaticLayerPlugin(NavigationPlugin):
     node_name: str = attr.ib()
     reference_name: t.Optional[str] = attr.ib()
 
-    def load(self, interpreter: Interpreter) -> None:
-        move_base = get_move_base(interpreter, self.node_name)
+    def load(self, interpreter: Interpreter, c: NodeContext) -> None:
+        move_base = c  # get_move_base(interpreter, self.node_name)
 
         move_base.read('~unknown_cost_value', -1)
         move_base.read('~lethal_cost_value', 100)
